@@ -32,11 +32,13 @@ pipeline {
 
        stage('Sonar Quality Test'){
           steps{
+             script{
                 withSonarQubeEnv(credentialsId: 'sonar_cred') {
                    sh 'mvn clean package sonar:sonar'
                 }
              }
           }
-
+        }
+        
     }
 }        
