@@ -63,12 +63,12 @@ pipeline {
                def pom = readMavenPom file: 'pom.xml'
                def nexusRepo = pom.version.endsWith("SNAPSHOT") ? "balu-release" : "balu-SNAPSHOT"
                nexusArtifactUploader artifacts: 
-               [
+                 [
                   [artifactId: 'springboot',
                    classifier: '',
                    file: 'target/Uber.jar', 
                    type: 'jar']
-               ],
+                 ],
                 credentialsId: 'nexus',
                 groupId: 'com.example', 
                 nexusUrl: '192.168.12.132:8081', 
@@ -79,5 +79,6 @@ pipeline {
             }
          }
       }
-    }
+
+   }
 }        
