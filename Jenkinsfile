@@ -73,7 +73,7 @@ pipeline {
 				nexusVersion: 'nexus3',
 				protocol: 'http',
 				repository: 'balu-SNAPSHOT',
-				version: '1.0.1'
+				version: '1.0.0'
 		 }
 	   }	
 	 }
