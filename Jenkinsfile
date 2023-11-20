@@ -57,28 +57,27 @@ pipeline {
           }
        }
 
-      stage("Nexus Artifactory"){
-         steps{
-            script{
-               def pom = readMavenPom file: 'pom.xml'
-               def nexusRepo = pom.version.endsWith("SNAPSHOT") ? "balu-SNAPSHOT" : "balu-release"
-               nexusArtifactUploader artifacts: 
-                 [
-                  [artifactId: 'springboot',
-                   classifier: '',
-                   file: 'target/Uber.jar', 
-                   type: 'jar']
-                 ],
-                credentialsId: 'nexus',
-                groupId: 'com.example', 
-                nexusUrl: '3.90.254.135:8081', 
-                nexusVersion: 'nexus3', 
-                protocol: 'http', 
-                repository: nexusRepo, 
-                version: "${pom.version}"
-            }
-         }
-      }
-
+      stage("Nexus Artifact Repo"){
+	     steps{
+		   script{
+            def pom = readMavenPom file: 'pom.xml'
+			   def nexusRepo = pom.version.endsWith("SNAPSHOT") ? "demoapp-SNAPSHOT" : "demoapp-release"
+			   nexusArtifactUploader artifacts:
+			   [
+				[artifactId: 'springboot',
+				 classifier: '',
+				 file: 'target/Uber.jar',
+				 type: 'jar']
+			    ],
+				credentialsId: 'nexus_cred',
+				groupId: 'com.example',
+				nexusUrl: '3.90.254.135:8081',
+				nexusVersion: 'nexus3',
+				protocol: 'http',
+				repository: nexusRepo,
+				version: "${pom.version}"
+		 }
+	   }	
+	 }
    }
 }        
