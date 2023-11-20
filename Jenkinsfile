@@ -47,7 +47,7 @@ pipeline {
             }
          }
        }
-//
+
        stage("OWASP Dependency check"){
           steps{
              script{
@@ -56,5 +56,26 @@ pipeline {
              }
           }
        }
+
+      stage{"Nexus Artifactory"}{
+         steps{
+            script{
+               nexusArtifactUploader artifacts: 
+               [
+                  [artifactId: 'springboot',
+                   classifier: '',
+                   file: 'target/Uber.jar', 
+                   type: 'jar']
+               ],
+                credentialsId: 'nexus',
+                groupId: 'com.example', 
+                nexusUrl: '192.168.12.132:8081', 
+                nexusVersion: 'nexus3', 
+                protocol: 'http', 
+                repository: 'balu-release', 
+                version: '1.0.0'
+            }
+         }
+      }
     }
 }        
