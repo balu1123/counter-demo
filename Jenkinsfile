@@ -72,8 +72,8 @@ pipeline {
 				nexusUrl: '3.90.254.135:8081',
 				nexusVersion: 'nexus3',
 				protocol: 'http',
-				repository: 'demoapp-SNAPSHOT',
-				version: '1.0.0'
+				repository: 'balu-SNAPSHOT',
+				version: '1.0.2-SNAPSHOT'
 		 }
 	   }	
 	 }
