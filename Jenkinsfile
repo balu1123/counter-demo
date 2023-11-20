@@ -60,9 +60,7 @@ pipeline {
       stage("Nexus Artifact Repo"){
 	     steps{
 		   script{
-            //def pom = readMavenPom file: 'pom.xml'
-			   //def nexusRepo = pom.version.endsWith("SNAPSHOT") ? "demoapp-SNAPSHOT" : "demoapp-release"
-			   nexusArtifactUploader artifacts:
+            nexusArtifactUploader artifacts:
 			   [
 				[artifactId: 'springboot',
 				 classifier: '',
@@ -74,7 +72,7 @@ pipeline {
 				nexusUrl: '3.90.254.135:8081',
 				nexusVersion: 'nexus3',
 				protocol: 'http',
-				repository: balu-release,
+				repository: 'balu-release',
 				version: '1.0.2'
 		 }
 	   }	
