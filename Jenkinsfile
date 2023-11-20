@@ -69,7 +69,7 @@ pipeline {
 				 file: 'target/Uber.jar',
 				 type: 'jar']
 			    ],
-				credentialsId: 'nexus_cred',
+				credentialsId: 'nexus',
 				groupId: 'com.example',
 				nexusUrl: '3.90.254.135:8081',
 				nexusVersion: 'nexus3',
