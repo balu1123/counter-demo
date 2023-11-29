@@ -29,7 +29,7 @@ pipeline {
               sh 'mvn clean install'
            }
        }  
-
+     //
        stage('Sonar Quality Test'){
           steps{
              script{
