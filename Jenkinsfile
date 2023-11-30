@@ -56,7 +56,7 @@ pipeline {
              }
           }
        }
-
+       // new checks
       stage("Nexus Artifact Repo"){
 	     steps{
 		   script{
